@@ -28,6 +28,8 @@ try:
             json.dump(data, file, indent = 4)
 
     print("JSONs successfully modified!")
+    input("Press any key to continue...")
 
 except Exception as e:
     print(f"Something went wrong.\nStack:\n{e}")
+    input("Press any key to exit...")
