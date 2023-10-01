@@ -10,6 +10,7 @@ import json
 #? which is recommended for use with CBBE/TWB bodies with 3BBB physics.
 
 try:
+    print("Initializing...")
     #? closest values to dead-center of the weight triangle:
     new_weight = [ 0.333299994468689, 0.333299994468689, 0.333299994468689 ]
     json_files = [file for file in os.listdir() if file.endswith(".json")]
@@ -20,8 +21,9 @@ try:
 
         if "Weight" in data:
             data["Weight"] = new_weight
+            print(f" -> Modified weight for '{json_file}'.")
         else:
-            print(f"The file '{json_file.title}' doesn't contain 'Weight' field! Skipping it...")
+            print(f"The file '{json_file}' doesn't contain 'Weight' field! Skipping it...")
 
         #* write new json:
         with open(json_file, "w") as file:
