@@ -2,7 +2,7 @@ import os
 import shutil
 
 def overwrite_textures(src_dir, dst_dir):
-    texture_types = ['_d.dds', '_n.dds', '_s.dds']
+    texture_types = ['_d.dds', '_msn.dds', '_s.dds']
     
     for subdir, _, files in os.walk(dst_dir):
         for file in files:
