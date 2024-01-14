@@ -7,7 +7,7 @@ def overwrite_textures(src_dir, dst_dir):
     for subdir, _, files in os.walk(dst_dir):
         for file in files:
             if file.endswith(('_d.dds', '_n.dds', '_s.dds')):
-                my_texture = next((t for t in my_textures if file.starswith(t[:-6])), None)
+                my_texture = next((t for t in my_textures if file.startswith(t[:-6])), None)
                 if my_texture:
                     my_texture_path = os.path.join(src_dir, my_texture)
                     file_path = os.path.join(subdir, file)
