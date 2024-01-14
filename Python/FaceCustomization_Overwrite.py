@@ -8,6 +8,8 @@ def overwrite_textures(src_dir, dst_dir):
         for file in files:
             for texture_type in texture_types:
                 if file.endswith(texture_type):
+                    if texture_type == '_msn.dds':
+                        texture_type = '_n.dds'
                     master_texture = 'basefemalehead' + texture_type
                     master_texture_path = os.path.join(src_dir, master_texture)
                     file_path = os.path.join(subdir, file)
