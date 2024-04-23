@@ -34,13 +34,16 @@ else:
                 print(f" -> Found LooksMenu presets directory: {root}")
                 for file in os.listdir(root):
                     if file.endswith('.json'):
-                        with open(os.path.join(root, file), 'r') as json_file:
-                            data = json.load(json_file)
-                            if data.get('Gender') == gender_code:
-                                print(f"    -> Found desired preset file: {file}")
-                                destination = os.path.join('C:\\Users\\Rubber Duck\\Desktop\\filtered_presets', file)
-                                shutil.copy(os.path.join(root, file), destination)
-                                copied_count += 1
+                        try:
+                            with open(os.path.join(root, file), 'r') as json_file:
+                                data = json.load(json_file)
+                                if data.get('Gender') == gender_code:
+                                    print(f"    -> Found desired preset file: {file}")
+                                    destination = os.path.join('C:\\Users\\Rubber Duck\\Desktop\\filtered_presets', file)
+                                    shutil.copy(os.path.join(root, file), destination)
+                                    copied_count += 1
+                        except json.JSONDecodeError:
+                            print(f"    DECODING ERROR: Couldn't decode JSON: '{os.path.join(root, file)}'")
         
         print(f"Done! {copied_count} presets copied.")
     except Exception as e:
