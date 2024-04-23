@@ -39,7 +39,8 @@ else:
                                 data = json.load(json_file)
                                 if data.get('Gender') == gender_code:
                                     print(f"    -> Found desired preset file: {file}")
-                                    destination = os.path.join('C:\\Users\\Rubber Duck\\Desktop\\filtered_presets', file)
+                                    new_copied_file = f'(RD-M) {file}'
+                                    destination = os.path.join('C:\\Users\\Rubber Duck\\Desktop\\filtered_presets', new_copied_file)
                                     shutil.copy(os.path.join(root, file), destination)
                                     copied_count += 1
                         except json.JSONDecodeError:
